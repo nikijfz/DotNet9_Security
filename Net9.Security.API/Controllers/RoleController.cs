@@ -6,11 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Net9.Security.API.Controllers
 {
-<<<<<<< HEAD
     [Authorize(Policy = "AdminOnly")]
-=======
-    [Authorize(Roles = "Administrator")]
->>>>>>> 3c5ed30d555e0e9e5f1bedd4b957af89a62eb16a
     [ApiController]
     [Route("api/[controller]")]
     public class RoleController : ControllerBase
