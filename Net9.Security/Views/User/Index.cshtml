@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success text-start" dir="ltr">@TempData["Message"]</div>
+}
+
+<div dir="ltr" class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="m-0">System Users List</h2>
+        <a asp-controller="Account" asp-action="RegisterUser" class="btn btn-primary">Create New User</a>
+    </div>
+
+    <table class="table table-bordered table-striped text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Username</th>
+                <th>Email Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>
+                        <div class="d-flex justify-content-center gap-2">
+                            <a asp-action="EditUserRoles" asp-route-userId="@user.Id" class="btn btn-sm btn-warning">Manage Roles</a>
+
+                            <form asp-action="DeleteUser" method="post" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                <input type="hidden" name="userId" value="@user.Id" />
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

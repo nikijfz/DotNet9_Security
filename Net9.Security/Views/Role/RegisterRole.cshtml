@@ -1,0 +1,18 @@
+﻿@model Net9.Security.Controllers.Dtos.RegisterRoleDto
+
+<div dir="ltr" class="container mt-4" style="max-width: 500px;">
+    <h2>Register New Role</h2>
+    <hr />
+
+    <form asp-action="RegisterRole" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group mb-3">
+            <label class="form-label">Role Name</label>
+            <input asp-for="RoleName" class="form-control" />
+            <span asp-validation-for="RoleName" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Create Role</button>
+    </form>
+</div>
