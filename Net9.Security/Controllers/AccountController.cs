@@ -1,11 +1,18 @@
+<<<<<<< HEAD
 ﻿using Microsoft.AspNetCore.Authorization;
 using Net9.Security.Controllers.Dtos;
+=======
+﻿using Net9.Security.Controllers.Dtos;
+>>>>>>> 3c5ed30d555e0e9e5f1bedd4b957af89a62eb16a
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Net9.Security.Controllers
 {
+<<<<<<< HEAD
     [AllowAnonymous]
+=======
+>>>>>>> 3c5ed30d555e0e9e5f1bedd4b957af89a62eb16a
     public class AccountController : Controller
     {
         #region [- Private Fields -]

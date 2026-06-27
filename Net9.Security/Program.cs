@@ -7,7 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+<<<<<<< HEAD
 #region [- Database & Identity Configuration -]
+=======
+>>>>>>> 3c5ed30d555e0e9e5f1bedd4b957af89a62eb16a
 var connectionString = builder.Configuration.GetValue<string>("ConnectionStrings:Default");
 builder.Services.AddDbContext<ApplicationDbContext>(c => c.UseSqlServer(connectionString));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
@@ -20,6 +23,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     options.User.RequireUniqueEmail = true;
 }
 ).AddEntityFrameworkStores<ApplicationDbContext>();
+<<<<<<< HEAD
 #endregion
 
 #region [- AddAuthorization() -]
@@ -30,12 +34,17 @@ builder.Services.AddAuthorization(options =>
 #endregion
 
 #region [- ConfigureApplicationCookie() -]
+=======
+>>>>>>> 3c5ed30d555e0e9e5f1bedd4b957af89a62eb16a
 builder.Services.ConfigureApplicationCookie(Options =>
 {
     Options.LoginPath = "/Account/Login";
     Options.AccessDeniedPath = "/Account/AccessDenied";
 });
+<<<<<<< HEAD
 #endregion
+=======
+>>>>>>> 3c5ed30d555e0e9e5f1bedd4b957af89a62eb16a
 
 var app = builder.Build();
 
@@ -70,16 +79,24 @@ using (var scope = app.Services.CreateScope())
         var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
 
+<<<<<<< HEAD
         if (app.Environment.IsDevelopment())
         {
             await IdentityDataSeeder.SeedDataAsync(userManager, roleManager);
         }
+=======
+        await IdentityDataSeeder.SeedDataAsync(userManager, roleManager);
+>>>>>>> 3c5ed30d555e0e9e5f1bedd4b957af89a62eb16a
     }
     catch (Exception ex)
     {
         Console.WriteLine($"An error occurred while seeding the database: {ex.Message}");
     }
+<<<<<<< HEAD
 }
+=======
+} 
+>>>>>>> 3c5ed30d555e0e9e5f1bedd4b957af89a62eb16a
 #endregion
 
 app.Run();

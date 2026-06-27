@@ -6,7 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Net9.Security.Controllers
 {
+<<<<<<< HEAD
     [Authorize(Policy = "AdminOnly")]
+=======
+    [Authorize(Roles = "Administrator")]
+>>>>>>> 3c5ed30d555e0e9e5f1bedd4b957af89a62eb16a
     public class RoleController : Controller
     {
         #region [- Private Fields -]
